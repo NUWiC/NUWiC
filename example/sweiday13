@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en-US">
+
+<!-- saved from url=(0057)http://datatables.net/examples/data_sources/js_array.html -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+    <title>NU SWE Industry Day 2013 Pocket Guide</title>
+
+
+    <link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap-responsive.min.css"/>
+    <link rel="stylesheet" type="text/css" href="lib/jquery.dataTables/css/DT_bootstrap.css"/>
+    <link rel="stylesheet" href="../files/css/datatables.responsive.css"/>
+
+
+<script src="lib/lodash/lodash.min.js"></script>
+<script src="lib/jquery/jquery.min.js"></script>
+<script src="lib/jquery.dataTables/js/jquery.dataTables.min.js"></script>
+<script src="lib/jquery.dataTables/js/DT_bootstrap.js"></script>
+<script src="../files/js/datatables.responsive.js"></script>
+<script src="js/dom-bootstrap.js"></script>
+
+
+
+    <style>
+        .title {
+            font-size: larger;
+            font-weight: bold;
+        }
+
+        .table th.centered-cell, .table td.centered-cell {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+<div class="row">
+    <div class="span12 title">Bootstrap v2.x Responsive Example Using DOM with Checkboxes</div>
+</div>
+
+<div class="row">
+<div class="span12">
+
+
+<!-- <table id="example" class="table table-bordered table-striped">
+<thead>
+<tr>
+    <th data-class="expand">Rendering engine</th>
+    <th>Browser</th>
+    <th data-hide="phone">Platform(s)</th>
+    <th class="centered-cell" data-hide="phone,tablet">Engine version</th>
+    <th class="centered-cell" data-hide="phone,tablet">CSS grade</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+    <td>Trident</td>
+    <td>Internet Explorer 4.0</td>
+    <td>Win 95+</td>
+    <td class="centered-cell">4</td>
+    <td class="centered-cell">X</td>
+</tr>
+</tbody>
+</table> -->
+
+<!--
+<table id="example" class="table table-bordered table-striped">
+    <thead>
+    <tr>
+    <th data-class="expand">Company</th>
+    <th>Room  (Floor)</th>
+    <th data-hide="phone">Permanent</th>
+    <th class="centered-cell" data-hide="phone,tablet">Engine version</th>
+    <th class="centered-cell" data-hide="phone,tablet">CSS grade</th>
+</tr>
+</thead>
+
+<tbody>
+</tbody>
+</table>
+-->
+
+
+   <table id="example" class="display dataTable table table-bordered table-striped"> 
+    <thead>
+        <tr role="row">
+            <th data-class="expand" style="width: 100px;">Company</th>
+            <th style="width: 85px;">Room (Floor)</th>
+            <th class="center sorting centered-cell" data-hide="phone,tablet" style="width: 60px;">Applied Math</th>
+            <th class="center sorting centered-cell" data-hide="phone,tablet" style="width: 36px;">BME</th>
+            <th class="center sorting centered-cell" data-hide="phone,tablet" style="width: 47px;">Chem</th>
+            <th class="center sorting centered-cell" data-hide="phone,tablet" style="width: 38px;">Civil</th>
+            <th class="center sorting centered-cell" data-hide="phone,tablet" style="width: 50px;">Comp. Eng</th>
+            <th class="center sorting centered-cell" data-hide="phone,tablet" style="width: 50px;">Comp. Sci</th>
+            <th class="center sorting centered-cell" data-hide="phone,tablet" style="width: 24px;">EE</th>
+            <th class="center sorting centered-cell" data-hide="phone,tablet" style="width: 63px;">Environ. Eng.</th>
+            <th class="center sorting centered-cell" data-hide="phone,tablet" style="width: 21px;">IE</th>
+            <th class="center sorting centered-cell" data-hide="phone,tablet" style="width: 46px;">MaDE</th>
+            <th class="center sorting centered-cell" data-hide="phone,tablet" style="width: 36px;">Mat. Sci</th>
+            <th class="center sorting centered-cell" data-hide="phone,tablet" style="width: 47px;">Mech. Eng</th>
+            <th class="center sorting centered-cell" data-hide="phone,tablet" style="width: 44px;">Non-Eng</th>
+            <th class="center sorting centered-cell" data-hide="phone" style="width: 62px;">MS/PhD</th>
+            <th class="center sorting centered-cell" data-hide="phone" style="width: 80px;">Permanent</th>
+            <th class="center sorting centered-cell" data-hide="phone" style="width: 34px;">Co-op</th>
+            <th class="center sorting centered-cell" data-hide="phone" style="width: 49px;">Intern</th>
+        </tr>
+    </thead>
+
+
+
+
+
+</div>
+</div>
+</div>
+
+
+
+
+
+<script>
+
+
+
+
+$(document).ready(function() {
+
+
+
+
+
+
+
+
+
+
+/*
+    $('#dynamic').html( '<div id="example_wrapper" class="dataTables_wrapper" role="grid"><table cellpadding="0" cellspacing="0" border="0" class="display" id="example"></table></div>' );
+*/
+
+    $('#example').dataTable( {
+
+        /*"aaData": aDataSet,
+        "aaSorting": [[1, 'asc']],
+        "aoColumns": [
+            { "sTitle": "Company", "sClass": "center" "sWidth": "100px", "bAutoWidth": false },
+            { "sTitle": "Room  (Floor)", "sWidth": "70px", "bAutoWidth": false },
+            { "sTitle": "Table #", "bVisible": false },
+            { "sTitle": "Applied Math", "sClass": "center", "sWidth": "50px", "bAutoWidth": false  },
+            { "sTitle": "BME", "sClass": "center", "sWidth": "35px", "bAutoWidth": false  },
+            { "sTitle": "Chem", "sClass": "center", "sWidth": "35px", "bAutoWidth": false  },
+            { "sTitle": "Civil", "sClass": "center", "sWidth": "35px", "bAutoWidth": false  },
+            { "sTitle": "Comp. Eng", "sClass": "center", "sWidth": "50px", "bAutoWidth": false  },
+            { "sTitle": "Comp. Sci", "sClass": "center", "sWidth": "50px", "bAutoWidth": false  },
+            { "sTitle": "EE", "sClass": "center", "sWidth": "35px", "bAutoWidth": false  },
+            { "sTitle": "Environ. Eng.", "sClass": "center", "sWidth": "50px", "bAutoWidth": false  },
+            { "sTitle": "IE", "sClass": "center", "sWidth": "35px", "bAutoWidth": false  },
+            { "sTitle": "MaDE", "sClass": "center", "sWidth": "35px", "bAutoWidth": false  },
+            { "sTitle": "Mat. Sci", "sClass": "center", "bAutoWidth": false  },
+            { "sTitle": "Mech. Eng", "sClass": "center", "bAutoWidth": false  },
+            { "sTitle": "Non-Eng", "sClass": "center", "bAutoWidth": false  },
+            { "sTitle": "MS/PhD", "sClass": "center", "sWidth": "35px", "bAutoWidth": false },
+            { "sTitle": "Permanent", "sClass": "center", "sWidth": "50px", "bAutoWidth": false },
+            { "sTitle": "Co-op", "sClass": "center", "sWidth": "35px", "bAutoWidth": false },
+            { "sTitle": "Intern", "sClass": "center", "sWidth": "35px", "bAutoWidth": false },
+
+            ],
+
+            "aoColumnDefs": [ 
+        {"sWidth": "200px", "aTargets": [1] },
+        {"sWidth": "100px", "aTargets": [1] } ], */
+        "iDisplayLength": -1,
+        "aLengthMenu": [[-1, 15, 25, 50], ["All", 15, 25, 50]],
+        //"sPaginationType": "bootstrap",
+
+
+
+
+
+        // Setup for Bootstrap support.
+        sDom: '<"row"<"span6"l><"span6"f>r>t<"row"<"span6"i><"span6"p>>',
+        sPaginationType: 'bootstrap',
+
+        // Setup for responsive datatables helper.
+        bAutoWidth     : false,
+    
+        fnPreDrawCallback: function () {
+            // Initialize the responsive datatables helper once.
+            if (!responsiveHelper) {
+                responsiveHelper = new ResponsiveDatatablesHelper(tableContainer, breakpointDefinition);
+            }
+        },
+        fnRowCallback  : function (nRow, aData, iDisplayIndex, iDisplayIndexFull) {
+            responsiveHelper.createExpandIcon(nRow);
+        },
+        fnDrawCallback : function (oSettings) {
+            responsiveHelper.respond();
+        }
+
+});
+
+
+
+    } );    
+
+
+
+//function toggleMajorVisibility
+function fnShowHide( iCol )
+{
+    /* Get the DataTables object again - this is not a recreation, just a get of the object */
+    var oTable = $('#example').dataTable();
+     
+    var bVis = oTable.fnSettings().aoColumns[iCol].bVisible;
+    oTable.fnSetColumnVis( iCol, bVis ? false : true );
+}
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+</body>
+</html>

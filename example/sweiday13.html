@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en-US">
+
+<!-- saved from url=(0057)http://datatables.net/examples/data_sources/js_array.html -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+    <title>NU SWE Industry Day 2013 Pocket Guide</title>
+
+
+    <script src="http://datatables.net/release-datatables/media/js/jquery.js"></script>
+
+    <script src="http://datatables.net/release-datatables/media/js/jquery.dataTables.js"></script>
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap-responsive.min.css"/>
+    <link rel="stylesheet" href="lib/jquery.dataTables/css/DT_bootstrap.css"/>
+    <link rel="stylesheet" href="../files/css/datatables.responsive.css"/>
+
+
+
+
+
+<script>
+
+/* Data set - can contain whatever information you want */
+var aDataSet = [
+                
+  ["3M Company","Wildcat Room  (1)",79,"","","x","","x","","x","","x","x","x","x","","","x","","x"  ],
+  ["AT&T","Wildcat Room  (1)",74,"","","","","x","x","x","","","","","x","x","","x","","x"  ],
+  ["Accenture","Northwestern  (2)",69,"","x","x","x","x","x","x","x","x","x","x","x","x","","x","","x"  ],
+  ["Adage Technologies","Louis  (2)",45,"","","","","x","x","","","","","","","x","x","x","x","x"  ],
+  ["Alcatel-Lucent","Louis  (2)",9,"","","","","x","x","x","","","","","","","x","x","x","x"  ],
+  ["Allstate Insurance","Lake  (2)",60,"","","","","x","x","","","","","","","x","","x","","x"  ],
+  ["Altec Inc.","Louis  (2)",43,"","","","","","x","x","","x","x","x","x","x","","x","x","x"  ],
+  ["American Medical Association","Louis  (2)",48,"","","","","x","x","","","","","","","","","","","x"  ],
+  ["AvantCredit","Louis  (2)",52,"","","","","x","x","","","","","","","x","","x","",""  ],
+  ["Baxter Healthcare Corporation","Big 10  (1)",80,"","x","x","","","","","","x","","x","x","","","x","x","x"  ],
+  ["Bemis Company","Louis  (2)",4,"","x","x","","","","x","","","","x","x","","","x","x",""  ],
+  ["Boeing Company","Louis  (2)",7,"","","x","x","x","x","x","","x","x","x","x","x","","x","","x"  ],
+  ["CME Group","Louis  (2)",12,"","","","","x","x","","","","","","","","","x","",""  ],
+  ["Cars.com","Louis  (2)",2,"","","","","x","x","","","","","","","","","","","x"  ],
+  ["Chopper Trading","Louis  (2)",21,"x","","","","x","x","x","","","","","","","x","x","",""  ],
+  ["Chrysler Group LLC","Louis  (2)",44,"","","x","","","x","x","","","","x","x","","","","","x"  ],
+  ["Citadel LLC","Louis  (2)",22,"x","","","","x","x","x","","","","","","","x","x","","x"  ],
+  ["Clarity Solution Group","Louis  (2)",23,"x","","","","x","x","x","","x","","","x","x","","x","",""  ],
+  ["ComEd","Louis  (2)",20,"","","","","","","x","","","","","x","x","","","","x"  ],
+  ["Continental Corporation","Louis  (2)",39,"","","","","x","x","x","","","","","x","","","x","","x"  ],
+  ["DENSO International America","Louis  (2)",46,"","","","","x","","x","","","","","x","x","x","x","x","x"  ],
+  ["DMC Inc","Lake  (2)",54,"","","","","x","x","x","","","","","x","","","x","",""  ],
+  ["Deloitte Consulting","Lake  (2)",61,"x","x","","x","x","x","x","x","x","x","x","x","x","","x","",""  ],
+  ["Discover Financial Services","Wildcat Room  (1)",78,"","","","","","","","","x","x","","","","","x","",""  ],
+  ["Dropbox","Lake  (2)",58,"x","x","x","x","x","x","x","x","x","x","x","x","x","","x","",""  ],
+  ["ENVIRON International Corp","Louis  (2)",47,"","","x","x","","","","x","","","","","","","x","","x"  ],
+  ["Epic","Louis  (2)",5,"x","x","x","x","x","x","x","x","x","x","x","x","x","","x","",""  ],
+  ["Etherios, a division of Digi International","Louis  (2)",31,"","","","","x","x","x","","","","","","","","x","","x"  ],
+  ["Exxon Mobil","Wildcat Room  (1)",76,"","","x","x","","","x","","","","x","x","x","x","x","x","x"  ],
+  ["FTI Consulting","Louis  (2)",3,"","","","","","","","","","","","","","","x","","x"  ],
+  ["Facebook","Wildcat Room  (1)",77,"","","","","","x","","","","","","","","","x","","x"  ],
+  ["FactSet Research Systems","Louis  (2)",42,"","","","","x","x","","","","","","","x","","x","","x"  ],
+  ["Fenwal Inc, a Fresenius-Kabi Company ","Louis  (2)",1,"","x","","","x","x","","","","","","x","","","x","x","x"  ],
+  ["Ford Motor Company","Northwestern  (2)",71,"","","","","x","x","x","","","x","","x","","x","x","","x"  ],
+  ["GAF","Big 10  (1)",83,"","","x","","","","x","","","","x","x","","","","x",""  ],
+  ["GTL/Illinois River Energy","Louis  (2)",14,"","","x","","","","","","","","","","","","","x","x"  ],
+  ["General Dynamics Electric Boat","Louis  (2)",25,"","","","x","x","x","x","","","","","x","","x","x","",""  ],
+  ["General Electric (GE)","Lake  (2)",63,"x","x","x","x","x","x","x","x","x","x","x","x","x","x","x","x","x"  ],
+  ["Goodyear Tire & Rubber Company","Wildcat Room  (1)",73,"","","x","","","","x","","","","x","x","","","x","x","x"  ],
+  ["HERE, a Nokia Business","Louis  (2)",30,"","","","","x","x","","","","","","","","x","x","","x"  ],
+  ["Hanley, Flight & Zimmerman LLC","Louis  (2)",51,"","","","","x","","x","","","","","x","x","","x","",""  ],
+  ["Hospira","Northwestern  (2)",66,"","x","x","","x","x","x","","x","x","","x","","","","x",""  ],
+  ["IMC Financial Markets","Louis  (2)",10,"x","","","","x","x","x","","","","","","","","x","","x"  ],
+  ["ITW","Louis  (2)",16,"","","","","x","x","x","","","x","","x","x","","x","","x"  ],
+  ["Illinois Dept. of Transportation","Louis  (2)",37,"","","","x","","","","","","","","","","","x","",""  ],
+  ["Institute for Defense Analysis","Louis  (2)",41,"x","","x","","x","x","x","x","","","x","x","x","","x","","x"  ],
+  ["Kiewit","Louis  (2)",8,"","","","x","","","","","","","","","","x","x","x","x"  ],
+  ["Lend Lease","Louis  (2)",32,"","","","x","","","","","","","","","","","x","","x"  ],
+  ["MathWorks","Louis  (2)",6,"","","","","x","x","x","","","","","x","","x","x","x","x"  ],
+  ["McDonnell Boehnen Hulbert & Berghoff LLP","Louis  (2)",28,"","","","","x","x","x","","","","","x","","x","x","",""  ],
+  ["Metro North Railroad","Louis  (2)",27,"","","","x","x","","x","x","","","","x","","","x","",""  ],
+  ["Metropolitan Water Reclamation District of Greater Chicago","Louis  (2)",11,"","","x","x","","","x","","","","","x","","","x","",""  ],
+  ["Microsoft","Big 10  (1)",84,"","","","","x","x","x","","","","","","","x","x","x","x"  ],
+  ["Mozilla","Northwestern  (2)",64,"","","","","","x","","","","","","","","","","","x"  ],
+  ["Nielsen","Lake  (2)",57,"x","",""," ","x","x"," x"," ","x","x"," ","x","x","x","x","","x"  ],
+  ["Northrop Grumman","Big 10  (1)",82,"","","","","x","x","","","","","","","","x","x","","x"  ],
+  ["Northwestern Mutual","Louis  (2)",36,"","","","","x","x","","","","","","","x","","","","x"  ],
+  ["Oracle America, Inc.","Lake  (2)",62,"x","x","x","x","x","x","x","x","x","x","x","x","x","","x","",""  ],
+  ["Outerwall/Redbox","Louis  (2)",19,"","","","","x","x","","","","","","","","","x","",""  ],
+  ["P&G","Big 10  (1)",81,"","x","x","","","","","","","x","x","","x","x","x","x","x"  ],
+  ["PEC North America","Northwestern  (2)",67,"","","","","","","x","","","x","","x","","","x","",""  ],
+  ["Pariveda Solutions","Louis  (2)",38,"x","","","","x","x","","","","","","","","","x","",""  ],
+  ["PepsiCo","Lake  (2)",55,"x","","","","x","x","","","x","","","","","","","",""  ],
+  ["Pratt & Whitney","Louis  (2)",13,"","","","","","","","","","x","x","x","","","x","",""  ],
+  ["PwC (PricewaterhouseCoopers)","Louis  (2)",15,"x","x","","","x","x","x","","x","x","","x","x","x","x","","x"  ],
+  ["Readyforce","Northwestern  (2)",68,"x","","","x","x","x","x","","x","","","x","","","x","","x"  ],
+  ["S&C Electric","Wildcat Room  (1)",75,"","","","","","","","","","","","","","","","",""  ],
+  ["SBB Research Group","Louis  (2)",18,"","","","","x","x","","","","","","","","x","x","x","x"  ],
+  ["SapientNitro","Louis  (2)",50,"","","","","x","x","","","x","","","","x","","x","",""  ],
+  ["Schneider Electric","Louis  (2)",33,"","","","","x","x","x","","x","x","","x","x","","x","x","x"  ],
+  ["Shmoop University, Inc.","Northwestern  (2)",70,"","","","","x","x","","","","","","","","x","x","x","x"  ],
+  ["SpaceX","Louis  (2)",53,"","","","","x","x","x","","x","x","x","x","x","","x","x","x"  ],
+  ["Tata Consultancy Services","Northwestern  (2)",65,"x","","","","x","x","x","","","","","","","","x","",""  ],
+  ["Think Big Analytics","Louis  (2)",29,"","","","","","x","","","","","","","","","x","","x"  ],
+  ["Thoughtworks","Lake  (2)",59,"x","x","x","x","x","x","x","x","x","x","x","x","x","","x","",""  ],
+  ["Trading Technologies","Louis  (2)",17,"","","","","","x","","","","","","","","","x","x","x"  ],
+  ["United Airlines","Wildcat Room  (1)",72,"","","","","","x","","","x","","","","x","","x","","x"  ],
+  ["United Conveyor Corporation","Louis  (2)",35,"","","x","","","","x","","","","","x","","","x","",""  ],
+  ["WMS","Lake  (2)",56,"x","","","","x","x","x","","","x","","x","","x","x","x","x"  ],
+  ["Wm Wrigley Jr Company","Louis  (2)",49,"","","","","","","","","","","","x","","","","x",""  ],
+  ["Wolverine Trading , LLC","Louis  (2)",26,"","","","","x","x","","","","","","","x","","x","","x"  ],
+  ["Yahoo!","Louis  (2)",24,"","","","","x","x","","","","","","","","x","x","","x"  ],
+  ["ZS Associates","Louis  (2)",40,"x","x","x","x","x","x","x","x","x","x","x","x","","x","x","","x"  ],
+  ["Zebra Technologies Corporation","Louis  (2)",34,"","","x","","x","x","x","","","","","x","x","","x","x","x"  ]
+];
+</script>
+
+
+    <style>
+        .title {
+            font-size: larger;
+            font-weight: bold;
+        }
+
+        .table th.centered-cell, .table td.centered-cell {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+<div class="row">
+    <div class="span12 title"> Bootstrap v2.x Responsive Example Using DOM with Checkboxes </div>
+</div>
+
+<div class="row">
+<div class="span12">
+
+<div id="dynamic"></div>
+
+<!--<table id="example" class="table table-bordered table-striped"> </table>
+    <!--
+<thead>
+<tr>
+    <th data-class="expand">Rendering engine</th>
+    <th>Browser</th>
+    <th data-hide="phone">Platform(s)</th>
+    <th class="centered-cell" data-hide="phone,tablet">Engine version</th>
+    <th class="centered-cell" data-hide="phone,tablet">CSS grade</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+    <td>Trident</td>
+    <td>Internet Explorer 4.0</td>
+    <td>Win 95+</td>
+    <td class="centered-cell">4</td>
+    <td class="centered-cell">X</td>
+</tr>
+</tbody>
+</table> -->
+
+
+
+
+
+
+
+
+
+</div>
+</div>
+
+
+</div>
+
+<script src="lib/lodash/lodash.min.js"></script>
+<script src="lib/jquery/jquery.min.js"></script>
+<script src="lib/jquery.dataTables/js/jquery.dataTables.min.js"></script>
+<script src="lib/jquery.dataTables/js/DT_bootstrap.js"></script>
+<script src="../files/js/datatables.responsive.js"></script>
+<script src="js/ajax-bootstrap-recreate-table.js"></script>
+
+
+<script>
+var responsiveHelper;
+var breakpointDefinition = {
+    tablet: 1024,
+    phone: 480
+};
+var tableContainer = $('#example');
+
+
+
+$(document).ready(function() {
+
+    $('#dynamic').html( '<div id="example_wrapper" class="dataTables_wrapper" role="grid">
+        <table cellpadding="0" cellspacing="0" border="0" class="display" id="example">
+        </table></div>' );
+
+
+/*
+<!--
+   <table id="example" class="display dataTable table table-bordered table-striped"> 
+    <thead>
+        <tr role="row">
+            <th data-class="expand" style="width: 100px;">Company</th>
+            <th style="width: 85px;">Room (Floor)</th>
+            <th class="center sorting centered-cell" data-hide="phone,tablet" style="width: 60px;">Applied Math</th>
+            <th class="center sorting centered-cell" data-hide="phone,tablet" style="width: 36px;">BME</th>
+            <th class="center sorting centered-cell" data-hide="phone,tablet" style="width: 47px;">Chem</th>
+            <th class="center sorting centered-cell" data-hide="phone,tablet" style="width: 38px;">Civil</th>
+            <th class="center sorting centered-cell" data-hide="phone,tablet" style="width: 50px;">Comp. Eng</th>
+            <th class="center sorting centered-cell" data-hide="phone,tablet" style="width: 50px;">Comp. Sci</th>
+            <th class="center sorting centered-cell" data-hide="phone,tablet" style="width: 24px;">EE</th>
+            <th class="center sorting centered-cell" data-hide="phone,tablet" style="width: 63px;">Environ. Eng.</th>
+            <th class="center sorting centered-cell" data-hide="phone,tablet" style="width: 21px;">IE</th>
+            <th class="center sorting centered-cell" data-hide="phone,tablet" style="width: 46px;">MaDE</th>
+            <th class="center sorting centered-cell" data-hide="phone,tablet" style="width: 36px;">Mat. Sci</th>
+            <th class="center sorting centered-cell" data-hide="phone,tablet" style="width: 47px;">Mech. Eng</th>
+            <th class="center sorting centered-cell" data-hide="phone,tablet" style="width: 44px;">Non-Eng</th>
+            <th class="center sorting centered-cell" data-hide="phone" style="width: 62px;">MS/PhD</th>
+            <th class="center sorting centered-cell" data-hide="phone" style="width: 80px;">Permanent</th>
+            <th class="center sorting centered-cell" data-hide="phone" style="width: 34px;">Co-op</th>
+            <th class="center sorting centered-cell" data-hide="phone" style="width: 49px;">Intern</th>
+        </tr>
+    </thead>
+-->
+*/
+
+    $('#example').dataTable( {
+
+        "aaData": aDataSet,
+        "aaSorting": [[1, 'asc']],
+        "aoColumns": [
+            { "sTitle": "Company", "sClass": "center ", "sWidth": "100px", "bAutoWidth": false, "data-class": "expand" },
+            { "sTitle": "Room  (Floor)", "sWidth": "70px", "bAutoWidth": false },
+            { "sTitle": "Table #", "bVisible": false },
+            { "sTitle": "Applied Math", "sClass": "center", "sWidth": "50px", "bAutoWidth": false  },
+            { "sTitle": "BME", "sClass": "center", "sWidth": "35px", "bAutoWidth": false, "data-hide": "phone,tablet"  },
+            { "sTitle": "Chem", "sClass": "center", "sWidth": "35px", "bAutoWidth": false, "data-hide": "phone,tablet"  },
+            { "sTitle": "Civil", "sClass": "center", "sWidth": "35px", "bAutoWidth": false, "data-hide": "phone,tablet"  },
+            { "sTitle": "Comp. Eng", "sClass": "center", "sWidth": "50px", "bAutoWidth": false, "data-hide": "phone,tablet"  },
+            { "sTitle": "Comp. Sci", "sClass": "center", "sWidth": "50px", "bAutoWidth": false, "data-hide": "phone,tablet"  },
+            { "sTitle": "EE", "sClass": "center", "sWidth": "35px", "bAutoWidth": false, "data-hide": "phone,tablet" },
+            { "sTitle": "Environ. Eng.", "sClass": "center", "sWidth": "50px", "bAutoWidth": false, "data-hide": "phone,tablet"  },
+            { "sTitle": "IE", "sClass": "center", "sWidth": "35px", "bAutoWidth": false, "data-hide": "phone,tablet"  },
+            { "sTitle": "MaDE", "sClass": "center", "sWidth": "35px", "bAutoWidth": false, "data-hide": "phone,tablet"  },
+            { "sTitle": "Mat. Sci", "sClass": "center", "bAutoWidth": false, "data-hide": "phone,tablet"  },
+            { "sTitle": "Mech. Eng", "sClass": "center", "bAutoWidth": false, "data-hide": "phone,tablet"  },
+            { "sTitle": "Non-Eng", "sClass": "center", "bAutoWidth": false, "data-hide": "phone,tablet"  },
+            { "sTitle": "MS/PhD", "sClass": "center", "sWidth": "35px", "bAutoWidth": false, "data-hide": "phone" },
+            { "sTitle": "Permanent", "sClass": "center", "sWidth": "50px", "bAutoWidth": false, "data-hide": "phone" },
+            { "sTitle": "Co-op", "sClass": "center", "sWidth": "35px", "bAutoWidth": false, "data-hide": "phone" },
+            { "sTitle": "Intern", "sClass": "center", "sWidth": "35px", "bAutoWidth": false, "data-hide": "phone"  },
+
+            ],
+
+       // "aoColumnDefs": [ 
+        //    {"sWidth": "200px", "aTargets": [1] },
+        //    {"sWidth": "100px", "aTargets": [1] } ], 
+            "iDisplayLength": -1,
+            "aLengthMenu": [[-1, 15, 25, 50], ["All", 15, 25, 50]],
+
+
+
+        // Setup for Bootstrap support.
+        sDom: '<"row"<"span6"l><"span6"f>r>t<"row"<"span6"i><"span6"p>>',
+        sPaginationType: 'bootstrap',
+
+        // Setup for responsive datatables helper.
+        bAutoWidth     : false,
+    
+        fnPreDrawCallback: function () {
+            // Initialize the responsive datatables helper once.
+            if (!responsiveHelper) {
+                responsiveHelper = new ResponsiveDatatablesHelper(tableContainer, breakpointDefinition);
+            }
+        },
+      /*  fnRowCallback  : function (nRow, aData, iDisplayIndex, iDisplayIndexFull) {
+            responsiveHelper.createExpandIcon(nRow);
+        },
+        fnDrawCallback : function (oSettings) {
+            responsiveHelper.respond();
+        }
+*/
+
+    } );    
+} );
+
+
+
+//function toggleMajorVisibility
+function fnShowHide( iCol )
+{
+    /* Get the DataTables object again - this is not a recreation, just a get of the object */
+    var oTable = $('#example').dataTable();
+     
+    var bVis = oTable.fnSettings().aoColumns[iCol].bVisible;
+    oTable.fnSetColumnVis( iCol, bVis ? false : true );
+}
+
+
+</script>
+
+
+
+
+
+
+
+
+
+</body>
+</html>
